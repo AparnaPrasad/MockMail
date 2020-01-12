@@ -1,6 +1,7 @@
 import React from 'react'; 
 import {useMapState} from '../../MapProvider';
-import { Container, Navbar, Nav, NavDropdown, Form, FormControl, } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Dropdown, DropdownButton, } from 'react-bootstrap';
+import { ActionTypes } from '../../MapActions';
 
 const styles = {
     mailsDisplay:{
@@ -8,8 +9,9 @@ const styles = {
     }
 }
 const Header: React.FC = () => {
-    const { 
-        mapState: { accountList,selectedAccount }
+    const {
+        mapState: { accountList, selectedAccount, featureRef },
+        setMapState
         } = useMapState();
 
     return <Navbar bg="light" expand="lg">
@@ -19,9 +21,9 @@ const Header: React.FC = () => {
             </Form>
         </Nav>
         <Nav className="ml-auto">
-            <NavDropdown title={selectedAccount} id="basic-nav-dropdown" className="nav-item--dropdown-custom">
-            {accountList.map((account, index)=>(<NavDropdown.Item key={account.address}>{account.name}</NavDropdown.Item>))}
-            </NavDropdown>
+            <DropdownButton id={'accountDropDown'} onSelect={(eventKey: string) => { setMapState({ type: ActionTypes.SET_SELECTED_ACCOUNT, selectedAccountMailId: eventKey }) }} title={selectedAccount?.name || 'No Accouunts'} className="nav-item--dropdown-custom">
+                {accountList.map((account, index) => (<Dropdown.Item eventKey={account.address} key={account.address}>{account.name}</Dropdown.Item>))}
+            </DropdownButton>
         </Nav>
 </Navbar>
 }

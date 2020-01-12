@@ -12,8 +12,8 @@ const initialMapContext: { mapState: MapState; setMapState: React.Dispatch<MapAc
     setMapState: () => {}
   };
   
-  // No need to export this as we use it internally only
-  const MapContext = createContext(initialMapContext);
+  // Export for test
+ export const MapContext = createContext(initialMapContext);
   
 
   export function MapProvider({ children }: Props) {

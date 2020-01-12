@@ -12,11 +12,10 @@ const styles = {
 }
 
 const MailContainer: React.FC = () => {
-    
   return (<div className="mails-container">
     <Header/>   
-    <MailControls/>
-    <MailsDisplay/>
+    <MailControls />
+    <MailsDisplay />
 </div>
  );
 }
