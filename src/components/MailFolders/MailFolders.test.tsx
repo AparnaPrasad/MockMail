@@ -7,10 +7,10 @@ describe(('renders side bar correctly'), () => {
 
     it('should render list of folders', () => {
         //const folderList =
-        const wrapper = shallow(<ul>
-            {FolderList.map((folder) => (<li key={folder}>{folder}</li>))}
+        const wrapper = shallow(<div>
+            {FolderList.map((folder) => (<div key={folder}>{folder}</div>))}
 
-        </ul>);
+        </div>);
         expect(wrapper).toMatchSnapshot();
     });
 

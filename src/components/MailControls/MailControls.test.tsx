@@ -6,7 +6,7 @@ import { FolderTypes } from '../../constants';
 import * as MapProvider from '../../MapProvider'
 
 describe("test mail controls", () => {
-    it("delete button is disabled for trash folder", () => {
+    it("should disable delete button trash folder", () => {
         const contextValues = {
             mapState: {
                 ...initialState,

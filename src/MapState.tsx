@@ -188,6 +188,12 @@ export const reducer = (state: MapState, action: MapActions) => {
                 isLoading: true
             }
         }
+        case ActionTypes.CLEAR_ID_DELETE: {
+            return {
+                ...state,
+                idsToDelete: []
+            }
+        }
         default:
             return state;
     }

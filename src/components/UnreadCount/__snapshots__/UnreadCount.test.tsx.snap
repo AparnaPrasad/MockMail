@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test UnreadCount component  should display unread mails in the inbox 1`] = `ShallowWrapper {}`;

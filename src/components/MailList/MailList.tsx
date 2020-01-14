@@ -5,6 +5,14 @@ import { MapState } from '../../MapState';
 import { getMailList } from '../../utils/getMailFolderKey';
 import styled from 'styled-components';
 import MailListItem from '../MailListItem/MailListItem';
+
+const styles = {
+    listItemsContainer: {
+        maxHeight: '100%',
+        overflow: 'auto'
+    }
+}
+
 const MailList: React.FC = () => {
 
     const {
@@ -30,9 +38,9 @@ const MailList: React.FC = () => {
     if (folderMailIds.length === 0) {
         return <StyledNoMail> No mails in {selectedFolder} folder</StyledNoMail>
     }
-    return (<ListGroup>
+    return (<ListGroup style={styles.listItemsContainer} data-testid="mail-list-group-container">
         {folderMailIds.map((mailId: string) => {
-            return <MailListItem key={mailId} mailId={mailId} />
+            return <MailListItem data-testid={'mail-list-item'}  key={mailId} mailId={mailId} />
         })}
     </ListGroup>)
 }

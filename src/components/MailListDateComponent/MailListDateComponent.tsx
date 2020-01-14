@@ -24,7 +24,7 @@ const MailListDateComponent = ({ dateStamp, showAgo }: Props) => {
     if (date.getFullYear() === today.getFullYear()) {
         return <FormattedDate value={stamp} day='numeric' month='short' />
     }
-    return < FormattedDate value={stamp} day='numeric' month = 'short' year = 'numeric' />
+    return <FormattedDate value={stamp} day='numeric' month = 'short' year = 'numeric' />
 }
 
 export default MailListDateComponent;

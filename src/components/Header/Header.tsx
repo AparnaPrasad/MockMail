@@ -1,7 +1,31 @@
 import React from 'react'; 
 import {useMapState} from '../../MapProvider';
-import {  Navbar, Nav, Form, FormControl, Dropdown, DropdownButton, } from 'react-bootstrap';
+import {  Navbar, Nav, Form, FormControl, Dropdown } from 'react-bootstrap';
 import { ActionTypes } from '../../MapActions';
+import { MdPerson } from "react-icons/md";
+import { colors } from '../../styles/commonStyles';
+
+const styles = {
+    dropDownStyle: {
+        background: 'transparent',
+        border: 'none',
+        color: 'white'
+    },
+    dropDownMenu: {
+        marginLeft: 'auto',
+        right: 0
+    },
+    dropDownMenuItem: {
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+    },
+    navbarStyle: {
+        background: colors.navBarBackground
+    },
+    searchBoxStyle: {
+        borderRadius: '20px'
+    }
+}
 
 const Header: React.FC = () => {
     const {
@@ -14,16 +38,25 @@ const Header: React.FC = () => {
         }
         return selectedAccount.name 
     }
-    return <Navbar bg="light" expand="lg">
-        <Nav className="mr-auto">
+    return <Navbar expand="lg" style={styles.navbarStyle}>
+        <Nav>
             <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                <FormControl style={styles.searchBoxStyle} type="text" placeholder="Search" className="mr-sm-12" />
             </Form>
         </Nav>
         <Nav className="ml-auto">
-            <DropdownButton id={'accountDropDown'} onSelect={(eventKey: string) => { setMapState({ type: ActionTypes.SET_SELECTED_ACCOUNT, selectedAccountMailId: eventKey }) }} title={getDropDownSeletedTitle()} className="nav-item--dropdown-custom">
-                {accountList.map((account, index) => (<Dropdown.Item eventKey={account.address} key={account.address}>{account.name}</Dropdown.Item>))}
-            </DropdownButton>
+            <Dropdown onSelect={(eventKey: string) => { setMapState({ type: ActionTypes.SET_SELECTED_ACCOUNT, selectedAccountMailId: eventKey }) }}>
+                <Dropdown.Toggle id={'accountDropDown'} style={styles.dropDownStyle}>
+                    <div><MdPerson /></div>
+                     { getDropDownSeletedTitle() }
+                </Dropdown.Toggle>
+                <Dropdown.Menu style={styles.dropDownMenu}>
+                    {accountList.map((account, index) => (<Dropdown.Item active={account.address === selectedAccount?.address} style={styles.dropDownMenuItem} eventKey={account.address} key={account.address}>
+                        {account.name}
+                    </Dropdown.Item>))}
+
+                </Dropdown.Menu>
+            </Dropdown>
         </Nav>
 </Navbar>
 }

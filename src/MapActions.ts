@@ -10,7 +10,8 @@ export enum ActionTypes {
     CHECK_BOX_CHANGE_ALL = 'CHECK_BOX_CHANGE_ALL',
     DELETE_SELECTED = 'DELETE_SELECTED',
     SET_ERROR = 'SET_ERROR',
-    SET_LOADING = 'SET_LOADING'
+    SET_LOADING = 'SET_LOADING',
+    CLEAR_ID_DELETE = 'CLEAR_ID_DELETE'
 }
 
 
@@ -103,6 +104,10 @@ interface SetLoading {
     type: ActionTypes.SET_LOADING
 }
 
+interface ClearIdDeleteList {
+    type: ActionTypes.CLEAR_ID_DELETE
+}
+
 export type MapActions = ReceiveMailData
     | SetSelectedFolder
     | SetSelectedAccount
@@ -113,3 +118,4 @@ export type MapActions = ReceiveMailData
     | DeleteSelected
     | SetError
     | SetLoading
+    | ClearIdDeleteList

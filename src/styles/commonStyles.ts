@@ -12,7 +12,7 @@ export const colors = {
     mailFolderSelected: "#186dc7",
     mailSelected: "#d1e5fb",
     mailListBackground: "rgb(226, 245, 253)",
-    navBarBackground: "",
+    navBarBackground: "#1279dc94",
     borderColor: "rgba(0,0,0,.125)"
 
 }
