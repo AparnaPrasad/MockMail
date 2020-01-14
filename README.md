@@ -24,6 +24,7 @@ Delete mails using checkbox and delete button
 **Set up**
 
 _Requires node v10 or higher_
-
-1. node server 
-2. npm start
+From project root directory:
+1. npm i
+2. node server 
+3. npm start
