@@ -1,6 +1,6 @@
 # Mock Mail - email client with React #
 
-_ _Single page application, which displays emails of a user._ _
+_Single page application, which displays emails of a user._
 
 **Optional Requirement**
 
@@ -23,7 +23,7 @@ Delete mails using checkbox and delete button
 
 **Set up**
 
-_ _Requires node v10 or higher_ _
+_Requires node v10 or higher_
 
 1. node server 
 2. npm start
