@@ -1,4 +1,4 @@
-import { FolderTypes } from './constants';
+import { FolderTypes, ErrorTypes } from './constants';
 
 export enum ActionTypes {
     SET_MAILS = 'SET_MAILS',
@@ -8,7 +8,9 @@ export enum ActionTypes {
     SET_MAIL_READ = 'SET_MAIL_READ',
     CHECK_BOX_CHANGE = 'CHECK_BOX_CHANGE',
     CHECK_BOX_CHANGE_ALL = 'CHECK_BOX_CHANGE_ALL',
-    DELETE_SELECTED = 'DELETE_SELECTED'
+    DELETE_SELECTED = 'DELETE_SELECTED',
+    SET_ERROR = 'SET_ERROR',
+    SET_LOADING = 'SET_LOADING'
 }
 
 
@@ -92,15 +94,16 @@ interface DeleteSelected {
     mailId: string
 }
 
-export type MapActions =
-  | {
-      type: 'setFeatureRef';
-      nextFeatureRef: any;
-    }
-  | {
-      type: 'resetFeatureRef';
-    } 
-    | ReceiveMailData
+interface SetError {
+    type: ActionTypes.SET_ERROR,
+    error: ErrorTypes
+}
+
+interface SetLoading {
+    type: ActionTypes.SET_LOADING
+}
+
+export type MapActions = ReceiveMailData
     | SetSelectedFolder
     | SetSelectedAccount
     | SetSelectedMailToDisplay
@@ -108,3 +111,5 @@ export type MapActions =
     | ChackBoxChangeAction
     | CheckBoxChangeAllAction
     | DeleteSelected
+    | SetError
+    | SetLoading

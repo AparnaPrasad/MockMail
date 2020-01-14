@@ -1,5 +1,4 @@
 import React from 'react';
-//import { MapContext, useMapState } from '../../MapProvider'
 import { initialState } from '../../MapState'
 import * as MapProvider from '../../MapProvider'
 import Header from './Header';
@@ -31,7 +30,7 @@ describe(('it should render header correctly'), () => {
         };
         jest.spyOn(MapProvider, "useMapState").mockImplementation(() => (contextValues));
         const wrapper = mount(<Header />)
-        expect(wrapper.find('button.dropdown-toggle.btn#accountDropDown').text()).toBe('No Accouunts');
+        expect(wrapper.find('button.dropdown-toggle.btn#accountDropDown').text()).toBe('No Accounts');
 
     })
 })

@@ -3,16 +3,41 @@ import { FolderTypes, FolderList } from '../../constants';
 import { Button } from 'react-bootstrap';
 import { useMapState } from '../../MapProvider';
 import { ActionTypes } from '../../MapActions';
+import styled from 'styled-components';
+import { GoMail } from "react-icons/go";
+import { colors } from "../../styles/commonStyles";
+import IconFolder from '../IconFolder/IconFolder';
+import UnreadCount from '../UnreadCount/UnreadCount';
+
 const styles = {
-    listElement:{
-        listStyle: 'none'
-    },
+   
     selected: {
-        background: 'red'
+        background: colors.mailFolderSelected
+    },
+    folderBox: {
+        justifyContent: 'center'
     }
 }
 
+const StyledText = styled.div`
+        padding: 10px 0px;
+        padding-left: 40px;
+        
+    `;
 
+const StyledLogo = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    font-size: 20px
+`
+const StyledLogoItems = styled.div`
+    padding: 10px
+`
+const StyledFolderListContainer = styled.div`
+    margin-top: 20px
+`
 
 const MailFolders: React.FC = () => {
     const { mapState: { selectedFolder },
@@ -23,17 +48,28 @@ const MailFolders: React.FC = () => {
         }
     }
     const getStyle = (selectedFolder: FolderTypes, folder: FolderTypes) => {
-        return selectedFolder === folder ? { ...styles.listElement, ...styles.selected } : { ...styles.listElement }
+        return selectedFolder === folder ? { ...styles.selected } : {}
     }
+
+    
+
     return (<React.Fragment>
-        <div>Mail</div> 
-        <Button>Compose</Button>
-          <ul>
-            {FolderList.map((folder) => (<li key={folder}
+        <StyledLogo>
+                <StyledLogoItems><GoMail size={30} /></StyledLogoItems>
+                <StyledLogoItems>Mail</StyledLogoItems>
+        </StyledLogo> 
+        <StyledLogo><Button>Compose</Button></StyledLogo>
+        <StyledFolderListContainer>
+            {FolderList.map((folder) => (<StyledText key={folder}
                 style={getStyle(selectedFolder, folder)}
-                onClick={() => { selectFolder(selectedFolder, folder) }}>{folder}</li>))}
-          </ul>
-    </React.Fragment> );
+                onClick={() => { selectFolder(selectedFolder, folder) }}>
+                <React.Fragment>
+                    <IconFolder folder={folder} />
+                    {folder}{folder === FolderTypes.T_INBOX && <UnreadCount/>}
+                </React.Fragment>
+            </StyledText>))}
+        </StyledFolderListContainer>
+    </React.Fragment>);
 }
 
 export default MailFolders;

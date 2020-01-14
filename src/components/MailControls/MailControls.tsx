@@ -5,6 +5,8 @@ import { useMapState } from '../../MapProvider';
 import { ActionTypes } from '../../MapActions';
 import { MapState } from '../../MapState';
 import { getMailList } from '../../utils/getMailFolderKey';
+import axios from 'axios';
+import { baseUrl, HttpStatusCodes, ErrorTypes, FolderTypes } from '../../constants';
 
 const MailControls: React.FC = () => {
     const {
@@ -15,7 +17,7 @@ const MailControls: React.FC = () => {
         const { mapState } = useMapState();
         return mapState[folderKey];
     }
-    const folderMailIds = useSelectedFolderIds(getMailList(selectedFolder))
+    const folderMailIds: string[] = (useSelectedFolderIds(getMailList(selectedFolder)) as string[])|| [];
 
     const selectedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -25,13 +27,30 @@ const MailControls: React.FC = () => {
         })
     }
 
-    const deleteSelected = () => {
-        idsToDelete.map((mailId) => (
+    const deleteSelected = async () => {
+        try {
+            const result = await axios.delete(`${baseUrl}/deleteMail`, { data: { delete: idsToDelete } })
+            if (result.status !== HttpStatusCodes.Success) {
+                setMapState({
+                    type: ActionTypes.SET_ERROR,
+                    error: ErrorTypes.ERR_DELETE_ERR
+                })
+                return;
+            }
+
+            idsToDelete.map((mailId) => (
+                setMapState({
+                    type: ActionTypes.DELETE_SELECTED,
+                    mailId: mailId
+                })
+            ))
+        }
+        catch (e) {
             setMapState({
-                type: ActionTypes.DELETE_SELECTED,
-                mailId: mailId
+                type: ActionTypes.SET_ERROR,
+                error: ErrorTypes.ERR_DELETE_ERR
             })
-       ))
+        }
         
     }
     return <Container>
@@ -41,7 +60,7 @@ const MailControls: React.FC = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     selectedAllChange(e)
                 }} />
-            <Button variant="outline-secondary" onClick={() => { deleteSelected() }}><AiOutlineDelete/></Button>
+            <Button id="delete-button" disabled={selectedFolder === FolderTypes.T_TRASH} variant="outline-secondary" onClick={() => { deleteSelected() }}><AiOutlineDelete /></Button>
         </Row>
         </Container>
 }

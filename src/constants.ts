@@ -12,3 +12,13 @@ export const FolderList: FolderTypes[] = [FolderTypes.T_INBOX, FolderTypes.T_DRA
     FolderTypes.T_TRASH ]
 
 export const baseUrl = 'http://localhost:8000'
+
+export enum ErrorTypes {
+    ERR_DATA_RECEIVE_ERROR = 'Data recevied error',
+    ERR_MARK_READ = "Error marking read",
+    ERR_DELETE_ERR = "Error deleting"
+}
+
+export enum HttpStatusCodes {
+    Success = 201
+}

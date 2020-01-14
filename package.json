@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/styled-components": "^4.4.2",
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
@@ -20,7 +21,9 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-icons": "^3.8.0",
+    "react-intl": "^3.11.0",
     "react-scripts": "3.3.0",
+    "styled-components": "^4.4.1",
     "typescript": "3.7.4"
   },
   "scripts": {

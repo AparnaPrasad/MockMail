@@ -6,7 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import GlobalStateProvider from './GlobalStateProvider';
 import {MapProvider } from './MapProvider';
-ReactDOM.render(<MapProvider><App /></MapProvider>, document.getElementById('root'));
+import { IntlProvider } from 'react-intl';
+ReactDOM.render(<IntlProvider locale="en"><MapProvider><App /></MapProvider></IntlProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

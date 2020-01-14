@@ -5,6 +5,7 @@ import MailLayout from '../MailLayout/MailLayout';
 import MailSubject from '../MailSubject/MailSubject';
 import Mail from '../Mail/Mail';
 import MailList from '../MailList/MailList';
+import { useMapState } from '../../MapProvider';
 
 const styles = {
     mailsDisplay:{
@@ -12,15 +13,18 @@ const styles = {
     }
 }
 const MailsDisplay: React.FC = () => {
+    const {
+        mapState: {  selectedMailIdDisplay },
+    } = useMapState();
     return <Container fluid style={styles.mailsDisplay}>
         <Row style={commonStyles.heightFull}>
-            <Col xl={4} lg={4} md={3} sm={3} xs={3} style={commonStyles.borderTest}>
+            <Col xl={4} lg={4} md={3} sm={3} xs={3} style={{  ...commonStyles.paddingNone }}>
             <MailList/>
             </Col>
-            <Col xl={8} lg={8} md={9} sm={9} xs={9} style={commonStyles.borderTest}>
-                <MailLayout>
-                    <MailSubject/>
-                    <Mail/>
+            <Col xl={8} lg={8} md={9} sm={9} xs={9} style={{ ...commonStyles.paddingNone }}>
+                 <MailLayout>
+                    {selectedMailIdDisplay && <MailSubject />}
+                    {selectedMailIdDisplay && <Mail />}
                 </MailLayout>
             </Col>
         </Row>

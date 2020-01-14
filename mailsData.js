@@ -117,7 +117,17 @@ const testData = {
                     "subject": "check new sub 2",
                     "folder": "Inbox",
                     "read": false
-                }],
+                },
+                {
+                    "content": "Dear Madam, \n your tenant is very noise. Their music keeps me up at night!",
+                    "date": 1578970800,
+                    "sender email": "a.jacos@msd.com",
+                    "sender name": "Aletta Jacobs",
+                    "subject": "check new sub 2",
+                    "folder": "Inbox",
+                    "read": false
+                }
+            ],
             "name": "Ap",
             "surname": "Bs"
         },
