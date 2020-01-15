@@ -10,7 +10,7 @@ const mailsData = {
                     "sender name": "Robert Volkwist",
                     "subject": "Business Proposal",
                     "folder": "Inbox",
-                    "read": "true"
+                    "read": true
 }, {
                     "content": "Dear Madam, \n your tenant is very noise. Their music keeps me up at night!",
                     "date": 1575473762.259641,
@@ -18,7 +18,7 @@ const mailsData = {
                     "sender name": "Aletta Jacobs",
                     "subject": "Noise from upstairs",
                     "folder": "Inbox",
-                    "read": "false"
+                    "read": false
 } ],
             "name": "Gustav",
             "surname": "Fugger"
@@ -41,7 +41,7 @@ const mailsData = {
                     "sender name": "Aletta Jacobs",
                     "subject": "Noise from upstairs",
                     "folder": "Inbox",
-                    "read": "false"
+                    "read": false
 } ],
             "name": "Henrietta",
             "surname": "Van Groningen Der Lorin"
@@ -50,7 +50,7 @@ const mailsData = {
 ] }
 
 
-const testData = {
+/*const testData = {
     "accounts": [
         {
             "address": "g.fugger@mail.com",
@@ -133,8 +133,8 @@ const testData = {
         },
     ]
 }
+*/
 module.exports={
     mailsData,
-    testData
-
+    //testData
 }
