@@ -29,5 +29,6 @@ Delete mails using checkbox and delete button, moves mails to trash folder
 1. Since I am storing data folder wise and user wise, it takes more time store this data during data fetch. This is a trade off to save time during folder change.
 2. Not a lot of time has been spent on styling, assumptions have been made regarding exact colors and font, font size. 
 3. Search bar does not contain search icon. 
+4. Add E2E testing. Add more unit tests
 
 
