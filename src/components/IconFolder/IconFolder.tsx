@@ -15,20 +15,23 @@ const StyledIconContainer = styled.span`
 `;
 
 const IconFolder = ({ folder }: Props) => {
+    const iconProps = {
+        size: 30
+    }
     const folderIcon = () => {
         switch (folder) {
             case FolderTypes.T_INBOX:
-                return <MdMoveToInbox size={25} />
+                return <MdMoveToInbox { ...iconProps } />
             case FolderTypes.T_DRAFTS:
-                return <MdDrafts size={25} />
+                return <MdDrafts {...iconProps} />
             case FolderTypes.T_SENT:
-                return <FiSend size={25} />
+                return <FiSend {...iconProps} />
             case FolderTypes.T_SPAM:
-                return <TiCancel size={25} />
+                return <TiCancel {...iconProps} />
             case FolderTypes.T_TRASH:
-                return <AiOutlineDelete size={25} />
+                return <AiOutlineDelete {...iconProps} />
             default:
-                return <MdMoveToInbox size={25} />
+                return <MdMoveToInbox {...iconProps} />
         }
     }
    

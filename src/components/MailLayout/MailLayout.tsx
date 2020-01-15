@@ -10,6 +10,7 @@ const borderStyle = `1px solid ${colors.borderColor}`
 const styles = {
     heightRemaining: {
         flex: 1,
+        minHeight: 0
     },
     borderMargin: {
         margin: '15px 0px'

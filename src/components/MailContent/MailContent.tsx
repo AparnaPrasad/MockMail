@@ -9,7 +9,8 @@ const StyledPara = styled.p`
 const MailContent: React.FC = () => {
     const styles = {
         mailContentContainer: {
-            overflow: 'auto'
+            overflow: 'auto',
+            maxHeight: '100%'
         }
     }
     const { mapState: { selectedMailIdDisplay, idToMailMap },

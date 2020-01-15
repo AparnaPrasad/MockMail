@@ -33,12 +33,19 @@ const StyledLogo = styled.div`
     font-size: 20px
 `
 const StyledLogoItems = styled.div`
-    padding: 10px
+    padding: 10px,
+    font-size: 24px
+`
+const StyledName = styled.div`
+    padding: 10px;
+    font-size: 23px
 `
 const StyledFolderListContainer = styled.div`
     margin-top: 20px
 `
-
+const StyledFolderName = styled.span`
+    font-size: 18px
+`
 const MailFolders: React.FC = () => {
     const { mapState: { selectedFolder },
         setMapState } = useMapState();
@@ -55,8 +62,8 @@ const MailFolders: React.FC = () => {
 
     return (<React.Fragment>
         <StyledLogo>
-                <StyledLogoItems><GoMail size={30} /></StyledLogoItems>
-                <StyledLogoItems>Mail</StyledLogoItems>
+            <StyledLogoItems><GoMail size={30} /></StyledLogoItems>
+            <StyledName>Mail</StyledName>
         </StyledLogo> 
         <StyledLogo><Button>Compose</Button></StyledLogo>
         <StyledFolderListContainer>
@@ -65,7 +72,7 @@ const MailFolders: React.FC = () => {
                 onClick={() => { selectFolder(selectedFolder, folder) }}>
                 <React.Fragment>
                     <IconFolder folder={folder} />
-                    {folder}{folder === FolderTypes.T_INBOX && <UnreadCount/>}
+                    <StyledFolderName>{folder}</StyledFolderName>{folder === FolderTypes.T_INBOX && <UnreadCount/>}
                 </React.Fragment>
             </StyledText>))}
         </StyledFolderListContainer>

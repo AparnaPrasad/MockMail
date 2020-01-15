@@ -9,6 +9,7 @@ const UnreadCount = () => {
 
     const SyledUnreadCount = styled.span`
         padding: 3px;
+        font-size: 18px;
     `
     const unreadCount = userInbox?.filter((mailId) => (idToMailMap[mailId].read === false))?.length || 0;
     return unreadCount ? <SyledUnreadCount>({unreadCount})</SyledUnreadCount>: null
