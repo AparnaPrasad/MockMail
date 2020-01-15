@@ -2,13 +2,21 @@
 
 _Single page application, which displays emails of a user._
 
+**Set up**
+
+_Requires node v10 or higher_
+From project root directory:
+1. npm i
+2. node server 
+3. npm start
+
 **Optional Requirement**
 
-Delete mails using checkbox and delete button
+Delete mails using checkbox and delete button, moves mails to trash folder
 
 **Implementation details**
 
-1. This application uses react context for state management.
+1. This application uses React context for state management.
 2. Uses Typescript for type safety
 3. On receiving the data, data is parsed and stored by user and by folder for reducing access time.
 4. For storing and accessing data, combination of (sender id + receiver id + and time stamp )is used as unique ID for each mail
@@ -22,10 +30,4 @@ Delete mails using checkbox and delete button
 2. Not a lot of time has been spent on styling, assumptions have been made regarding exact colors and font, font size. 
 3. Search bar does not contain search icon. 
 
-**Set up**
 
-_Requires node v10 or higher_
-From project root directory:
-1. npm i
-2. node server 
-3. npm start
