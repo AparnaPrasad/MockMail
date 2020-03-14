@@ -10,6 +10,9 @@ From project root directory:
 2. node server 
 3. npm start
 
+**Demo**
+![](http://g.recordit.co/eM709tcLYl.gif)
+
 **Optional Requirement**
 
 Delete mails using checkbox and delete button, moves mails to trash folder
