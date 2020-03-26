@@ -13,10 +13,6 @@ From project root directory:
 **Demo**
 ![](http://g.recordit.co/eM709tcLYl.gif)
 
-**Optional Requirement**
-
-Delete mails using checkbox and delete button, moves mails to trash folder
-
 **Implementation details**
 
 1. This application uses React context for state management.
